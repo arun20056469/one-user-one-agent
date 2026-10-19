@@ -1,0 +1,24 @@
+{
+  "currency": "INR",
+  "offers": [
+    {
+      "id": "trial_3d",
+      "price_inr": 1,
+      "duration_days": 3,
+      "label": "\u00e2\u201a\u00b91 trial (3 days)"
+    },
+    {
+      "id": "monthly",
+      "price_inr": 149,
+      "duration_days": 30,
+      "label": "\u00e2\u201a\u00b9149 monthly"
+    },
+    {
+      "id": "quarterly",
+      "price_inr": 399,
+      "duration_days": 90,
+      "label": "\u00e2\u201a\u00b9399 quarterly"
+    }
+  ],
+  "note": "These are the only prices, discounts or offers that exist. Never mention any other price, discount or offer."
+}

@@ -1,0 +1,61 @@
+{
+  "decisions": 912,
+  "p50_ms": 8,
+  "p90_ms": 13,
+  "p95_ms": 16,
+  "p99_ms": 24,
+  "max_ms": 2013,
+  "over_60s": 0,
+  "over_5min": 0,
+  "over_60s_ids": [],
+  "over_5min_ids": [],
+  "budget_breaches": [],
+  "status_counts": {
+    "PUBLISHED": 900,
+    "SUPPRESSED": 12
+  },
+  "action_counts": {
+    "PUSH": 382,
+    "IN_APP": 96,
+    "HOME_PAGE": 148,
+    "NONE": 214,
+    "WHATSAPP": 72
+  },
+  "latency_budget_s": 60,
+  "model_budget_per_decision": 8,
+  "tool_budget_per_decision": 20,
+  "fallbacks": [
+    "provider_timeout->rules",
+    "provider_timeout->rules",
+    "provider_timeout->rules",
+    "provider_timeout->rules",
+    "provider_timeout->rules",
+    "provider_timeout->rules",
+    "provider_parse_error->rules",
+    "provider_parse_error->rules",
+    "provider_parse_error->rules"
+  ],
+  "stale_suppressed": [
+    "D-EE205BD6BC",
+    "D-89B115AB73",
+    "D-7B8DA979F0",
+    "D-03A6138D5B",
+    "D-737F116B18",
+    "D-7F8636412A",
+    "D-47E8C68FC0",
+    "D-0D4B34542F",
+    "D-0FE21C0FC5",
+    "D-9CDF4951D9",
+    "D-EC7D3F97A7",
+    "D-F1408718A3",
+    "D-FAC63E04BA",
+    "D-0C7D1152E2",
+    "D-AAF1A53D05",
+    "D-C74428E766",
+    "D-6290CE8695",
+    "D-6972D123B9",
+    "D-FBB1BAB727",
+    "D-C24B5D036E",
+    "D-818ACBC59F"
+  ]
+}

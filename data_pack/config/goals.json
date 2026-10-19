@@ -1,0 +1,209 @@
+{
+  "rule_version": "g1",
+  "goals": [
+    {
+      "id": "first_paid_7d",
+      "name": "First paid plan within 7 days",
+      "priority": 10,
+      "window_days": 7,
+      "eligibility": {
+        "subscription_in": [
+          "none",
+          "lapsed"
+        ],
+        "min_age_days": 1
+      },
+      "success": {
+        "event": "purchase",
+        "match": {
+          "plan": [
+            "monthly",
+            "quarterly"
+          ]
+        },
+        "min_count": 1
+      }
+    },
+    {
+      "id": "trial_to_paid_7d",
+      "name": "Trial to paid within 7 days",
+      "priority": 9,
+      "window_days": 7,
+      "eligibility": {
+        "subscription_in": [
+          "trial"
+        ]
+      },
+      "success": {
+        "event": "purchase",
+        "match": {
+          "plan": [
+            "monthly",
+            "quarterly"
+          ]
+        },
+        "min_count": 1
+      }
+    },
+    {
+      "id": "finish_first_episode_5d",
+      "name": "Finish the first started episode within 5 days",
+      "priority": 8,
+      "window_days": 5,
+      "eligibility": {
+        "has_play_no_complete": true
+      },
+      "success": {
+        "event": "episode_complete",
+        "match": {},
+        "min_count": 1
+      }
+    },
+    {
+      "id": "first_full_episode_3d",
+      "name": "First full episode within 3 days",
+      "priority": 7,
+      "window_days": 3,
+      "eligibility": {
+        "never_completed_any_episode": true,
+        "min_opens": 1
+      },
+      "success": {
+        "event": "episode_complete",
+        "match": {},
+        "min_count": 1
+      }
+    },
+    {
+      "id": "second_episode_7d",
+      "name": "Second episode within 7 days",
+      "priority": 6,
+      "window_days": 7,
+      "eligibility": {
+        "completed_episode_count_in": [
+          1
+        ]
+      },
+      "success": {
+        "event": "episode_complete",
+        "match": {},
+        "min_count": 1
+      }
+    },
+    {
+      "id": "search_to_play_2d",
+      "name": "Turn a recent search into a play within 2 days",
+      "priority": 5,
+      "window_days": 2,
+      "eligibility": {
+        "recent_search_no_play_hours": 48
+      },
+      "success": {
+        "event": "episode_play",
+        "match": {},
+        "min_count": 1
+      }
+    },
+    {
+      "id": "quarterly_upgrade_10d",
+      "name": "Monthly subscriber upgrades to quarterly within 10 days",
+      "priority": 4,
+      "window_days": 10,
+      "eligibility": {
+        "subscription_in": [
+          "monthly"
+        ]
+      },
+      "success": {
+        "event": "purchase",
+        "match": {
+          "plan": [
+            "quarterly"
+          ]
+        },
+        "min_count": 1
+      }
+    },
+    {
+      "id": "reactivation_14d",
+      "name": "Dormant viewer returns within 14 days",
+      "priority": 3,
+      "window_days": 14,
+      "eligibility": {
+        "dormant_days": 14
+      },
+      "success": {
+        "event": "app_open",
+        "match": {},
+        "min_count": 1
+      }
+    },
+    {
+      "id": "weekly_active_3d",
+      "name": "Active on 3 distinct days within 7 days",
+      "priority": 3,
+      "window_days": 7,
+      "eligibility": {
+        "min_age_days": 1
+      },
+      "success": {
+        "event": "app_open",
+        "match": {},
+        "min_count": 1,
+        "distinct_days": 3
+      },
+      "underspecified": "Does an app open alone count as active, or must the viewer play something? Our interpretation (assumption): an app_open day counts only if it is followed by an episode_play on the same day."
+    },
+    {
+      "id": "whatsapp_consent_5d",
+      "name": "Gain WhatsApp consent within 5 days",
+      "priority": 2,
+      "window_days": 5,
+      "eligibility": {
+        "whatsapp_opt_in": false,
+        "notifications_opt_in": true
+      },
+      "success": {
+        "event": "consent_updated",
+        "match": {
+          "channel": [
+            "whatsapp"
+          ]
+        },
+        "min_count": 1
+      }
+    },
+    {
+      "id": "deepen_first_session_3d",
+      "name": "Viewer starts a second title within 3 days",
+      "priority": 2,
+      "window_days": 3,
+      "eligibility": {
+        "completed_episode_count_in": [
+          1
+        ]
+      },
+      "success": {
+        "event": "episode_play",
+        "match": {},
+        "min_count": 1
+      },
+      "underspecified": "It does not say whether the second play must be of a DIFFERENT content_slug than the first. Our interpretation (assumption): any episode_play inside the window counts."
+    },
+    {
+      "id": "watchlist_signal_7d",
+      "name": "Viewer saves a title to a watchlist within 7 days",
+      "priority": 1,
+      "window_days": 7,
+      "eligibility": {
+        "min_age_days": 1
+      },
+      "success": {
+        "event": "watchlist_add",
+        "match": {},
+        "min_count": 1
+      },
+      "unmeasurable": "The event type 'watchlist_add' does not exist anywhere in the event stream. The platform does not track watchlists. The agent must never select this goal because its outcome can never be judged."
+    }
+  ]
+}

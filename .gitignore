@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Generated test fixture (rebuilt automatically by tests/helpers.py)
+tests/_fixture_pack/
+
+# Scratch / logs
+*.log
+.DS_Store

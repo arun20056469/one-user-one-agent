@@ -1,0 +1,4 @@
+{"at": "2026-09-18T12:30:00Z", "type": "title_withdrawal", "title_ids": ["T0689", "T0187", "T0668"], "note": "Rights holder withdrew these titles at 18:00 IST on the replay day."}
+{"at": "2026-09-18T14:00:00Z", "type": "goal_rule_correction", "goal_id": "weekly_active_3d", "new_rule": {"event": "app_open", "match": {}, "min_count": 1, "distinct_days": 3, "requires_play_same_day": true}, "note": "Product corrected the weekly_active rule: an app-open day counts only if a play happens the same day."}
+{"at": "2026-09-18T13:30:00Z", "type": "traffic_surge", "until": "2026-09-18T13:40:00Z", "multiplier": 3, "note": "Evening peak: trigger volume triples for ten minutes."}
+{"at": "2026-09-18T15:30:00Z", "type": "datastore_slow", "until": "2026-09-18T15:33:00Z", "latency_ms": 400, "note": "State store slow for three minutes."}

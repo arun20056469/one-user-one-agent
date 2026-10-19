@@ -1,0 +1,64 @@
+RUN COMMANDS - One User, One Agent
+==================================
+
+Requirements: Python 3.10+ (tested on 3.14.6). Standard library only.
+No third-party packages, no API key, no network access.
+Run every command from the repository root (the folder that contains src/,
+data_pack/, tests/ and sample_run/).
+
+
+1) FULL RUN - THE ONE COMMAND (replay -> simulate -> judge -> impact)
+---------------------------------------------------------------------
+python -m src.main run --pack data_pack --out sample_run
+
+  Writes the complete sample_run/ bundle:
+    decisions.jsonl, actions.jsonl, control_log.jsonl, outcomes.jsonl,
+    outcome_events.jsonl, simulator_report.json, latency_report.json,
+    impact_report.md, impact_summary.json, final_report.md,
+    viewer_state/state.db, viewer_state/viewers.jsonl
+  Safe to re-run: replay resets its own state first and reproduces the run.
+  Windows PowerShell: use `py -m src.main ...` if `python` is not on PATH.
+
+
+2) TESTS
+--------
+python -m unittest discover -s tests
+python -m unittest discover -s tests -v            (verbose, per-test names)
+
+
+3) INDIVIDUAL STAGES (for evaluating or rerunning one part)
+-----------------------------------------------------------
+python -m src.main replay   --pack data_pack --out sample_run
+python -m src.main simulate --pack data_pack --out sample_run --seed 7
+python -m src.main judge    --pack data_pack --out sample_run
+python -m src.main impact   --pack data_pack --out sample_run
+python -m src.main audit    --pack data_pack --out sample_run
+
+
+4) REBUILD THE DATA PACK (optional - the pack already ships)
+-------------------------------------------------------------
+python tools/generate_datapack.py --out data_pack
+python tools/generate_datapack.py --out mypack --viewers 200 --days 12 --triggers 60
+
+
+5) USE A REAL MODEL PROVIDER (optional; mock/replay is the default)
+-------------------------------------------------------------------
+python tools/your_provider.py            # implement ModelProvider.propose()
+python -m src.main run --pack data_pack --out sample_run --provider real
+
+
+QUICK VERIFICATION (what a reviewer should see)
+-----------------------------------------------
+python -m src.main run --pack data_pack --out sample_run
+  -> [replay]   912 decisions | p50 8ms p95 18ms | breaches=0
+  -> [replay]   actions PUSH 382 / IN_APP 96 / HOME_PAGE 148 / WHATSAPP 72 / NONE 214
+  -> [simulate] holdout_violations: []
+  -> [judge]    900 goals judged | rule corrections applied to 35 open goals
+  -> [impact]   ITT agent 5.15% (n=719) vs holdout 5.52% (n=181)
+                -> -0.38 pp, 95% CI [-4.08, +3.32]
+  -> [impact]   holdout action leaks: 0 (must be 0)
+python -m src.main audit --pack data_pack --out sample_run
+  -> holdout_leaks 0, duplicate_actions_from_same_trigger 0,
+     decisions_without_goal_or_reason 0, injection_flagged_and_ignored true
+python -m unittest discover -s tests
+  -> Ran 25 tests ... OK

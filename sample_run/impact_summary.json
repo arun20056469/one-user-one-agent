@@ -1,0 +1,171 @@
+{
+  "itt_triggered": {
+    "agent": {
+      "k": 37,
+      "n": 719,
+      "rate": 0.05146036161335188
+    },
+    "holdout": {
+      "k": 10,
+      "n": 181,
+      "rate": 0.055248618784530384
+    },
+    "diff": -0.003788257171178505,
+    "ci95": [
+      -0.040783268712464515,
+      0.033206754370107505
+    ]
+  },
+  "sensitivity_all_randomized": {
+    "agent": {
+      "k": 37,
+      "n": 4000,
+      "rate": 0.00925
+    },
+    "holdout": {
+      "k": 10,
+      "n": 1000,
+      "rate": 0.01
+    },
+    "diff": -0.0007500000000000007,
+    "ci95": [
+      -0.00759349075947356,
+      0.006093490759473559
+    ]
+  },
+  "naive_served_vs_rest": {
+    "served": {
+      "k": 36,
+      "n": 698,
+      "rate": 0.05157593123209169
+    },
+    "rest": {
+      "k": 11,
+      "n": 202,
+      "rate": 0.054455445544554455
+    },
+    "diff": -0.0028795143124627637,
+    "ci95": [
+      -0.038212897994745657,
+      0.03245386936982013
+    ]
+  },
+  "per_goal": [
+    {
+      "goal_id": "finish_first_episode_5d",
+      "agent_k": 6,
+      "agent_n": 22,
+      "hold_k": 0,
+      "hold_n": 6,
+      "diff": 0.2727272727272727,
+      "lo": 0.0866224332691812,
+      "hi": 0.45883211218536424
+    },
+    {
+      "goal_id": "first_full_episode_3d",
+      "agent_k": 1,
+      "agent_n": 26,
+      "hold_k": 2,
+      "hold_n": 8,
+      "diff": -0.21153846153846154,
+      "lo": -0.5205720672488313,
+      "hi": 0.09749514417190827
+    },
+    {
+      "goal_id": "first_paid_7d",
+      "agent_k": 3,
+      "agent_n": 379,
+      "hold_k": 0,
+      "hold_n": 91,
+      "diff": 0.0079155672823219,
+      "lo": -0.0010062188056911073,
+      "hi": 0.016837353370334908
+    },
+    {
+      "goal_id": "quarterly_upgrade_10d",
+      "agent_k": 2,
+      "agent_n": 124,
+      "hold_k": 1,
+      "hold_n": 26,
+      "diff": -0.022332506203473948,
+      "lo": -0.09950696961257759,
+      "hi": 0.05484195720562969
+    },
+    {
+      "goal_id": "search_to_play_2d",
+      "agent_k": 9,
+      "agent_n": 17,
+      "hold_k": 3,
+      "hold_n": 6,
+      "diff": 0.02941176470588236,
+      "lo": -0.4357390742031581,
+      "hi": 0.4945626036149228
+    },
+    {
+      "goal_id": "second_episode_7d",
+      "agent_k": 8,
+      "agent_n": 41,
+      "hold_k": 2,
+      "hold_n": 9,
+      "diff": -0.027100271002710008,
+      "lo": -0.32457417980057196,
+      "hi": 0.27037363779515194
+    },
+    {
+      "goal_id": "trial_to_paid_7d",
+      "agent_k": 1,
+      "agent_n": 76,
+      "hold_k": 1,
+      "hold_n": 28,
+      "diff": -0.022556390977443608,
+      "lo": -0.09591404686428626,
+      "hi": 0.05080126490939904
+    },
+    {
+      "goal_id": "weekly_active_3d",
+      "agent_k": 7,
+      "agent_n": 34,
+      "hold_k": 1,
+      "hold_n": 7,
+      "diff": 0.06302521008403361,
+      "lo": -0.22967427749061248,
+      "hi": 0.3557246976586797
+    }
+  ],
+  "pilot": {
+    "headline_claim": "served vs everyone else (the report's number)",
+    "naive_diff": 0.08940239826132745,
+    "naive_ci95": [
+      0.06352472384852913,
+      0.11528007267412578
+    ],
+    "naive_n": [
+      1695,
+      3305
+    ],
+    "itt_diff": 0.03440448943793423,
+    "itt_ci95": [
+      0.005748937154775341,
+      0.06306004172109311
+    ],
+    "itt_n": [
+      3994,
+      1006
+    ],
+    "report_path": "pilot/pilot_report.md"
+  },
+  "actions": {
+    "PUSH": 382,
+    "HOME_PAGE": 148,
+    "WHATSAPP": 72,
+    "IN_APP": 96
+  },
+  "no_action_reasons": {
+    "holdout": 181,
+    "stale_trigger": 21,
+    "duplicate_trigger": 12
+  },
+  "holdout_action_leaks": [],
+  "decisions": 912,
+  "served_viewers": 698
+}

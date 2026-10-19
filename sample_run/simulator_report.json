@@ -1,0 +1,26 @@
+{
+  "seed": 7,
+  "days": 14,
+  "replay_day": "2026-09-18",
+  "viewers": 5000,
+  "arm_sizes": {
+    "holdout": 1000,
+    "agent": 4000
+  },
+  "actions_applied": {
+    "PUSH": 382,
+    "HOME_PAGE": 148,
+    "WHATSAPP": 72,
+    "IN_APP": 96
+  },
+  "holdout_violations": [],
+  "outcome_counts_by_arm": {
+    "agent:app_open": 16226,
+    "agent:episode_complete": 2932,
+    "agent:purchase": 65,
+    "holdout:app_open": 4163,
+    "holdout:episode_complete": 796,
+    "holdout:purchase": 19
+  },
+  "total_outcome_events": 32232
+}
